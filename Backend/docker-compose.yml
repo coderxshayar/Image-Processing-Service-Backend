@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis:latest
+    ports:
+      - '6379:6379'  
+    networks:
+      - app-network
+
+  rabbitmq:
+    image: rabbitmq:management
+    ports:
+      - '5672:5672'  
+      - '15672:15672'  
+    networks:
+      - app-network
+
+  mongo:
+    image: mongo:6.0
+    ports:
+      - "27017:27017"  
+    networks:
+      - app-network
+
+  backend:
+    build: .
+    ports:
+      - '3000:3000'  
+    environment:
+      - NODE_ENV=production
+      - REDIS_HOST=redis
+      - RABBITMQ_HOST=rabbitmq
+      - RABBITMQ_PORT=5672
+      - MONGO_URL=mongodb://mongo:27017/image-processing-service
+
+    depends_on:    
+      - redis
+      - rabbitmq
+      - mongo
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
