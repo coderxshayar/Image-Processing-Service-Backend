@@ -11,6 +11,7 @@ Authentication: User authentication using JWT tokens.
 Rate Limiting: Limits the number of requests to prevent abuse.
 Polling for Job Completion: Supports polling to check the status of a job for async transformation tasks.
 Dockerized: The entire backend is containerized using Docker for easy deployment.
+
 Tech Stack
 Node.js with Express.js for the backend server.
 MongoDB Atlas for storing image metadata and user data.
