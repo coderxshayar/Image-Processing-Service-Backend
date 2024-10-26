@@ -24,6 +24,9 @@ This project is a scalable backend for an image processing service that provides
 - **AWS S3** for cloud storage.
 - **Docker** and **Docker Compose** for containerization.
 
+## Architecture
+![image-processing-service-Backend-Architecture](https://github.com/user-attachments/assets/2481225a-f3d9-41f3-9618-acd855a01705)
+
 ## Setup Instructions
 
 ### Prerequisites
